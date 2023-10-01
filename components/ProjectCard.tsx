@@ -12,7 +12,7 @@ const ProjectCard = ({ project, rooms }: any) => {
     <Link
       href={{
         pathname:'/',
-        query: {filteredRooms}
+        query: { filteredRooms }
       }}
       className='prompt_card'
     >

@@ -11,22 +11,27 @@ const FurnitureCard = () => {
 
   const [saving, setSaving] = useState(false);
   const [item, setItem] = useState({ supplier: '', itemName: '' })
+  const [renderForm, setRenderForm] = useState(false);
 
-  const addItem = async (e: any) => {
+  const saveItem = async (e: any) => {
     e.preventDefault();
   };
 
-
-
   return (
-    <div className='profile_card'>
-      <Form
+    <div className='furniture_card'>
+      <button onClick={() => setRenderForm(true)}>
+        Add item
+      </button>
+
+      {renderForm && (
+        <Form
           project={project}
           room={filteredRooms[0]}
-          handleSubmit={addItem}
+          handleSubmit={saveItem}
           setItem={setItem}
           item={item}
         />
+      )}
     </div>
   )
 }
