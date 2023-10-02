@@ -11,11 +11,12 @@ const ItemForm = ({
   handleSubmit,
 }: ItemFormProps): JSX.Element => {
   /* TODO:
-    - Schema validation
+    - Schema validation (React Hook Form?)
     - Varying input types and additional input fields:
       - supplier contact info, dimensions, lead times, quantity, list price, trade price
     - Unit tests - Arrange, Act, Assert
     - Accessibility
+    - Styling... create more generic classes in globals file?
   */
   const textField = ({
     label,
