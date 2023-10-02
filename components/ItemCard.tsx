@@ -6,7 +6,7 @@ import { projects } from './data';
 import { ItemType } from './types';
 import ItemForm from './ItemForm';
 
-const FurnitureCard = () => {
+const ItemCard = () => {
   const project = projects[5];
   const filteredRooms = ['Foyer', 'Living Room'];
 
@@ -48,4 +48,4 @@ const FurnitureCard = () => {
   )
 }
 
-export default FurnitureCard
+export default ItemCard
