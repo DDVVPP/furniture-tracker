@@ -1,20 +1,31 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 
 import { projects } from './data';
-import Form from './Form';
+import { ItemType } from './types';
+import ItemForm from './ItemForm';
 
 const FurnitureCard = () => {
   const project = projects[5];
   const filteredRooms = ['Foyer', 'Living Room'];
 
   const [saving, setSaving] = useState(false);
-  const [item, setItem] = useState({ supplier: '', itemName: '' })
+  const [item, setItem] = useState<ItemType>({
+    name: '', supplier: '', finish: ''
+  });
   const [renderForm, setRenderForm] = useState(false);
 
-  const saveItem = async (e: any) => {
-    e.preventDefault();
+  const saveItem = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSaving(true);
+    try {
+      // POST item
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setSaving(false)
+    }
   };
 
   return (
@@ -24,9 +35,10 @@ const FurnitureCard = () => {
       </button>
 
       {renderForm && (
-        <Form
+        <ItemForm
           project={project}
           room={filteredRooms[0]}
+          saving={saving}
           handleSubmit={saveItem}
           setItem={setItem}
           item={item}
