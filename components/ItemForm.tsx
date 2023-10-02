@@ -64,7 +64,7 @@ const ItemForm = ({
 
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col mt-5 p-8 w-full max-w-2xl gap-4 rounded-xl border border-gray-200 bg-gray-100">
+        className="form_container">
 
         {
           textField({

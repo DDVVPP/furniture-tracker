@@ -30,6 +30,9 @@
 }
 
 /* ItemForm Component */
+.form_container {
+  @apply flex flex-col mt-5 p-8 w-full max-w-2xl gap-4 rounded-xl border border-gray-200 bg-gray-100;
+}
 .form_input {
   @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
 }
