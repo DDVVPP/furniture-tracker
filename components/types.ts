@@ -17,7 +17,7 @@ export type ItemFormProps = {
   room: string,
   setItem: Dispatch<SetStateAction<ItemType>>,
   item: ItemType,
-  saving: boolean,
+  isSaving: boolean,
   handleSubmit: FormEventHandler<HTMLFormElement>,
 }
 

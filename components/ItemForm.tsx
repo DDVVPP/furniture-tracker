@@ -7,13 +7,15 @@ const ItemForm = ({
   room,
   setItem,
   item,
-  saving,
+  isSaving,
   handleSubmit,
 }: ItemFormProps): JSX.Element => {
   /* TODO:
-    - Error validation
-    - Varying input types
+    - Schema validation
+    - Varying input types and additional input fields:
+      - supplier contact info, dimensions, lead times, quantity, list price, trade price
     - Unit tests - Arrange, Act, Assert
+    - Accessibility
   */
   const textField = ({
     label,
@@ -34,11 +36,13 @@ const ItemForm = ({
         }
 
         <input
+          className="form_input"
+          type="text"
+          id={label}
           value={textInput}
           onChange={(event) => setItem({ ...item, [textInput]: event.target.value })}
           placeholder={placeholder}
           required={isRequired}
-          className="form_input"
         />
       </label>
     )
@@ -92,11 +96,11 @@ const ItemForm = ({
           </Link>
 
           <button
-            type="submit"
-            disabled={saving}
             className="px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white"
+            type="submit"
+            disabled={isSaving}
           >
-            {saving ? 'Saving...' : 'Save'}
+            {isSaving ? 'Saving...' : 'Save'}
           </button>
         </div>
 

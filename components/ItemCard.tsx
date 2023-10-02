@@ -10,7 +10,7 @@ const ItemCard = () => {
   const project = projects[5];
   const filteredRooms = ['Foyer', 'Living Room'];
 
-  const [saving, setSaving] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
   const [item, setItem] = useState<ItemType>({
     name: '', supplier: '', finish: ''
   });
@@ -18,13 +18,13 @@ const ItemCard = () => {
 
   const saveItem = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSaving(true);
+    setIsSaving(true);
     try {
-      // POST item
+      // POST item with trade and list price calculations/totals
     } catch (error) {
       console.error(error)
     } finally {
-      setSaving(false)
+      setIsSaving(false)
     }
   };
 
@@ -38,7 +38,7 @@ const ItemCard = () => {
         <ItemForm
           project={project}
           room={filteredRooms[0]}
-          saving={saving}
+          isSaving={isSaving}
           handleSubmit={saveItem}
           setItem={setItem}
           item={item}
